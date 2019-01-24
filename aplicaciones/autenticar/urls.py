@@ -1,9 +1,9 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from . import views
 
 urlpatterns = [
-   path('', views.home, name='home'),#for calling the home function in the views.py folder
+   path('authenticate/', views.home, name='home'),#for calling the home function in the views.py folder
    #use this 'home' for providing in links in the html.
    path('authenticate/login/', views.login_user, name='login'),
    path('authenticate/logout/', views.logout_user, name='logout'),
