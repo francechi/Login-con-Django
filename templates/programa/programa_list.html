@@ -1,0 +1,43 @@
+{% extends 'autenticar/base.html' %}
+
+{% block title %}
+Programa
+{% endblock %}
+{% block a %}
+Listas de Programas
+{% endblock %}
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Nombre</td>
+			<td>Tipo</td>
+			<td>Version</td>
+            <td>Fecha</td>
+            <td>Persona</td>
+		</tr>
+		
+	</thead>
+	<tbody>
+        {% if programa %}
+        {% for programa in programa %}
+        <tr>
+            <td>{{ programa.id }}</td>
+            <td>{{ programa.nombre }}</td>
+            <td>{{ programa.tipo }}</td>
+            <td>{{ programa.version }}</td>
+            <td>{{ programa.fecha }}</td>
+            <td>{{ programa.persona.nombre }} {{ programa.persona.apellidos }}</td>
+
+        </tr>
+        {% endfor %}
+                  
+        {% else %}
+        <h1>No hay registros de programas</h1>
+        {% endif %}        
+	</tbody>
+</table>
+
+{% endblock %}
