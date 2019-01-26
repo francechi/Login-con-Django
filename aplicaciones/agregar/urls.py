@@ -1,7 +1,7 @@
 from django.urls import path, include, re_path
-from aplicaciones.agregar.views import index_agregar
+from django.contrib.auth.decorators import login_required
+from . import views
 
 urlpatterns = [
-    path('agregar', index_agregar),
-
+    path('agregar/', views.index_agregar, name='agregar'),
 ]

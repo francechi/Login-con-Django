@@ -26,20 +26,20 @@
           <a class="nav-link" href="{% url 'programa_list' %}">Programas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          <a class="nav-link" href="{% url 'logout' %}">Salir</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'edit_profile' %}">Edit Profile</a>
+          <a class="nav-link" href="{% url 'edit_profile' %}">Editar Perfil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'change_password' %}">Change Password</a>
+          <a class="nav-link" href="{% url 'change_password' %}">Cambiar Contraseña</a>
         </li>
       {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
+          <a class="nav-link" href="{% url 'login' %}">Entrar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'register' %}">Register</a>
+          <a class="nav-link" href="{% url 'register' %}">Registrarse</a>
         </li>
       {% endif %}
       

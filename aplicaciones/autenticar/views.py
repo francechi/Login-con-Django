@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from .forms import SignUpForm, EditProfileForm
+from django.contrib.auth.decorators import login_required
 
 def home(request):
 	return render(request,'autenticar/home.html',{})
@@ -24,7 +25,7 @@ def login_user(request):
 		return render(request,'autenticar/login.html',{})
 
 
-
+@login_required(login_url="/authenticate/login/")
 def logout_user(request):
 	logout(request)
 	messages.success(request,("Has Salido!"))
@@ -47,7 +48,7 @@ def register_user(request):
 	context={'form':form}
 	return render(request,'autenticar/register.html',context)
 
-
+@login_required(login_url="/authenticate/login/")
 def edit_profile(request):
 	if request.method=='POST':
 		form= EditProfileForm(request.POST, instance=request.user)
@@ -61,7 +62,7 @@ def edit_profile(request):
 	context={'form':form}
 	return render(request,'autenticar/edit_profile.html',context)
 
-
+@login_required(login_url="/authenticate/login/")
 def change_password(request):
 	if request.method=='POST':
 		form= PasswordChangeForm(data=request.POST, user=request.user)
