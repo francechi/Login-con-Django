@@ -11,12 +11,13 @@ Listas de Programas
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<td>#</td>
+			<td>ID</td>
 			<td>Nombre</td>
 			<td>Tipo</td>
-			<td>Version</td>
+			<td>Versión</td>
             <td>Fecha</td>
             <td>Persona</td>
+            <td>Acción</td>
 		</tr>
 		
 	</thead>
@@ -30,6 +31,7 @@ Listas de Programas
             <td>{{ programa.version }}</td>
             <td>{{ programa.fecha }}</td>
             <td>{{ programa.persona.nombre }} {{ programa.persona.apellidos }}</td>
+            <td> <a href="{% url 'programa_delete' programa.id %}">Eliminar</a></td>
 
         </tr>
         {% endfor %}
