@@ -20,7 +20,10 @@ Inicio de Sesión
 	  <div class="form-group">
 	    <input type="password" class="form-control"  placeholder="Enter Password" name="password">
 	  </div>
-	  <button type="submit" class="btn btn-secondary">Login</button>
+		<button type="submit" class="btn btn-secondary">Login</button>
+		<small class="text-muted ml-2">
+				<a href="{% url 'password_reset' %}">Forgot Password?</a>
+		</small>
 	</form>
 </div>
 {% endblock %}
