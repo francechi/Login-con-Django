@@ -23,6 +23,8 @@
     <ul class="navbar-nav ml-auto">
       {% if user.is_authenticated %}
         <li class="nav-item">
+            <a class="btn btn-success"-secundary" href="{% url 'programa_crear' %}">Agregar</a>
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'programa_list' %}">Programas</a>
         </li>
         <li class="nav-item">
