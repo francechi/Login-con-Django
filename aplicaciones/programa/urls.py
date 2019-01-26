@@ -6,5 +6,6 @@ urlpatterns = [
     path('programa/', views.index, name='index'),
     path('programa/nuevo/', views.programa_view, name='programa_crear'),
     path('programa/lista/', views.programa_list, name='programa_list'),
-    path('programa/delete/<programa_id>', views.programa_delete, name='programa_delete')
+    path('programa/delete/<programa_id>', views.programa_delete, name='programa_delete'),
+    path('programa/editar/<programa_id>', views.programa_edit, name='programa_edit')
 ]

@@ -15,6 +15,7 @@ from django.contrib import messages
 def index(request):
     return render(request, 'programa/index.html')
 
+
 def programa_view(request):
     if request.method == 'POST':
         form = ProgramaForm(request.POST)
@@ -24,16 +25,29 @@ def programa_view(request):
     else:
         form = ProgramaForm()
 
-    return render(request, 'programa/programa_forms.html', {'form':form})
+    return render(request, 'programa/programa_forms.html', {'form': form})
 
 
 def programa_list(request):
     programa = Programa.objects.all()
-    contexto = {'programa':programa}
+    contexto = {'programa': programa}
     return render(request, 'programa/programa_list.html', contexto)
+
 
 def programa_delete(request, programa_id):
     programa = Programa.objects.get(pk=programa_id)
     programa.delete()
     messages.success(request, ('Programa Eliminado!'))
     return redirect('programa_list')
+
+
+def programa_edit(request, programa_id):
+    programa = Programa.objects.get(pk=programa_id)
+    if request.method == 'GET':
+        form = ProgramaForm(instance=programa)
+    else:
+        form = ProgramaForm(request.POST, instance=programa)
+        if form.is_valid():
+                form.save()
+        return redirect('programa_list')
+    return render(request, 'programa/programa_forms.html', {'form': form})
