@@ -15,10 +15,10 @@ def login_user(request):
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
-			messages.success(request,('You Have Been Successfully Logged In!'))
+			messages.success(request,('Has Ingresado'))
 			return redirect('home')  
 		else:
-			messages.success(request,('Error Logging In - Please Try Again!'))
+			messages.success(request,('Error de Ingreso - Por Favor Intenta de Nuevo!'))
 			return redirect("login")
 	else:
 		return render(request,'autenticar/login.html',{})
@@ -27,7 +27,7 @@ def login_user(request):
 
 def logout_user(request):
 	logout(request)
-	messages.success(request,("You Have Been Logged Out!"))
+	messages.success(request,("Has Salido!"))
 	return redirect('home')
 
 def register_user(request):
@@ -39,7 +39,7 @@ def register_user(request):
 			password=form.cleaned_data['password1']
 			user = authenticate(request, username=username, password=password)
 			login(request, user)
-			messages.success(request,('You Have Been Successfully Registered!'))
+			messages.success(request,('Te Has Registrado Exitosamente'))
 			return redirect('home') 
 	else:
 		form= SignUpForm()
@@ -53,7 +53,7 @@ def edit_profile(request):
 		form= EditProfileForm(request.POST, instance=request.user)
 		if form.is_valid():
 			form.save()
-			messages.success(request,('You Profile Has Been Successfully Updated!'))
+			messages.success(request,('Tu perfil ha sido actualizado con éxito!'))
 			return redirect('home') 
 	else:
 		form= EditProfileForm(instance=request.user)
@@ -68,7 +68,7 @@ def change_password(request):
 		if form.is_valid():
 			form.save()
 			update_session_auth_hash(request, form.user)#to retain login session
-			messages.success(request,('You Password Has Been Successfully Updated!'))
+			messages.success(request,('Tu contraseña ha sido actualizada con éxito!'))
 			return redirect('home') 
 	else:
 		form= PasswordChangeForm(user=request.user)

@@ -29,16 +29,17 @@ def programa_view(request):
 
 
 def programa_list(request):
-    programa = Programa.objects.all()
+    programa = Programa.objects.all().order_by('id')
     contexto = {'programa': programa}
     return render(request, 'programa/programa_list.html', contexto)
 
 
 def programa_delete(request, programa_id):
-    programa = Programa.objects.get(pk=programa_id)
-    programa.delete()
-    messages.success(request, ('Programa Eliminado!'))
-    return redirect('programa_list')
+    programa = Programa.objects.get(id=programa_id)
+    if request.method == 'POST':
+        programa.delete()
+        return redirect('programa_list')
+    return render(request, 'programa/programa_delete.html', {'programa': programa})
 
 
 def programa_edit(request, programa_id):

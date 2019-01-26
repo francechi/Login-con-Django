@@ -1,0 +1,17 @@
+{% extends 'autenticar/base.html' %}
+
+{% block title %}
+Programa
+{% endblock %}
+{% block a %}
+Eliminar
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %} 
+    <h3>¿Desea Eliminar el Registro de {{ programa.nombre }}</h3>
+    <button class="btn btn-danger" type="sumbit">Si, eliminar</button>
+    <a class="btn btn-default" href="{% url 'programa_list' %}">Cancelar</a>
+</form>
+{% endblock %}

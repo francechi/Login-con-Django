@@ -18,7 +18,6 @@ Listas de Programas
             <td>Fecha</td>
             <td>Persona</td>
             <td></td>
-            <td></td>
 		</tr>
 		
 	</thead>
@@ -32,8 +31,11 @@ Listas de Programas
             <td>{{ programa.version }}</td>
             <td>{{ programa.fecha }}</td>
             <td>{{ programa.persona.nombre }} {{ programa.persona.apellidos }}</td>
-            <td> <a href="{% url 'programa_delete' programa.id %}">Eliminar</a></td>
-            <td> <a href="{% url 'programa_edit' programa.id %}">Editar</a></td>
+            <td> 
+                <a class="btn btn-danger" href="{% url 'programa_delete' programa.id %}">Eliminar</a>
+                <a class= "btn btn-primary" href="{% url 'programa_edit' programa.id %}">Editar</a>
+            </td>
+           
 
         </tr>
         {% endfor %}

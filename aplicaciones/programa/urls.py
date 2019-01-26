@@ -1,5 +1,5 @@
 from django.urls import path, include, re_path
-from aplicaciones.programa.views import index, programa_view, programa_list
+from aplicaciones.programa.views import index, programa_view, programa_list, programa_delete
 from . import views
 
 urlpatterns = [
